@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root { --ink: #13283f; --muted: #5b6b7c; --line: #c9d6db; --accent: #0f7c80; --panel: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e6eef2; --muted: #9aaab6; --line: #2a4152; --accent: #3bb6b0; --panel: #142532; }
+  }
+  body { font-family: "Segoe UI", Tahoma, system-ui, sans-serif; color: var(--ink); margin: 0; padding: 16px 4px; }
+  h2 { font-size: 16px; margin: 0 0 4px; }
+  p { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+  label {
+    display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; margin-bottom: 10px;
+    border: 1.5px solid var(--line); border-radius: 10px; background: var(--panel); cursor: pointer;
+  }
+  label:has(input:checked) { border-color: var(--accent); }
+  input { accent-color: var(--accent); margin-top: 3px; }
+  b { display: block; font-size: 14px; }
+  small { color: var(--muted); font-size: 12.5px; }
+  #saved { color: var(--accent); font-size: 13px; min-height: 1.2em; }
+</style>
+</head>
+<body>
+  <h2>Your Windows Persian keyboard layout</h2>
+  <p>Pick the one selected in Windows Settings → Time &amp; language → Language → Persian → Keyboards.</p>
+
+  <label>
+    <input type="radio" name="layout" value="persian">
+    <span><b>Persian</b><small>The older default layout. پ is on the <code>\</code> key.</small></span>
+  </label>
+  <label>
+    <input type="radio" name="layout" value="standard">
+    <span><b>Persian (Standard)</b><small>The ISIRI 9147 layout. پ is on the <code>m</code> key.</small></span>
+  </label>
+
+  <div id="saved" role="status"></div>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --bg: #eef3f4; --panel: #fff; --ink: #13283f; --muted: #5b6b7c;
+    --line: #c9d6db; --accent: #0f7c80; --accent-ink: #fff; --focus: #e0a526;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1a24; --panel: #142532; --ink: #e6eef2; --muted: #9aaab6;
+      --line: #2a4152; --accent: #3bb6b0; --accent-ink: #0e1a24; --focus: #f0c050;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; width: 380px; padding: 14px;
+    background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", Tahoma, system-ui, sans-serif;
+  }
+  label { display: block; font-weight: 600; margin: 0 0 4px; font-size: 13px; }
+  textarea {
+    width: 100%; height: 110px; resize: vertical; padding: 8px 10px;
+    border: 1.5px solid var(--line); border-radius: 8px;
+    background: var(--panel); color: var(--ink); font: inherit; font-size: 14px;
+    margin-bottom: 10px;
+  }
+  #input { direction: ltr; font-family: Consolas, monospace; }
+  #output { unicode-bidi: plaintext; font-family: Tahoma, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.8; }
+  textarea:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .actions { display: flex; gap: 8px; align-items: center; }
+  button {
+    font: inherit; font-weight: 600; padding: 6px 14px; border-radius: 7px;
+    border: 1.5px solid var(--accent); cursor: pointer;
+  }
+  .primary { background: var(--accent); color: var(--accent-ink); }
+  .secondary { background: transparent; color: var(--accent); }
+  #status { color: var(--muted); font-size: 12px; }
+  .layout-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .layout-row label { margin: 0; }
+  select {
+    flex: 1; font: inherit; font-size: 13px; padding: 4px 6px; border-radius: 6px;
+    border: 1.5px solid var(--line); background: var(--panel); color: var(--ink);
+  }
+</style>
+</head>
+<body>
+  <div class="layout-row">
+    <label for="layout">Layout</label>
+    <select id="layout">
+      <option value="persian">Persian</option>
+      <option value="standard">Persian (Standard)</option>
+    </select>
+  </div>
+  <label for="input">Mistyped text</label>
+  <textarea id="input" placeholder="sghl o,fd" spellcheck="false" autofocus></textarea>
+  <label for="output">Fixed text</label>
+  <textarea id="output" placeholder="سلام خوبی" readonly dir="auto"></textarea>
+  <div class="actions">
+    <button class="primary" id="copy">Copy</button>
+    <button class="secondary" id="clear">Clear</button>
+    <span id="status" role="status"></span>
+  </div>
+  <script src="converter.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

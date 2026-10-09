@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Keyboard Layout Fixer (EN ⇄ FA)",
+  "version": "1.3.1",
+  "description": "Right-click a text box to fix text typed with the wrong keyboard layout (English ⇄ Persian).",
+  "author": "Ehsan Shariaty",
+  "developer": {
+    "name": "Ehsan Shariaty",
+    "url": "https://grizzly.ir"
+  },
+  "homepage_url": "https://grizzly.ir",
+  "icons": {
+    "48": "icon-48.png",
+    "96": "icon-96.png",
+    "128": "icon-128.png"
+  },
+  "permissions": [
+    "menus",
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "converter.js",
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "48": "icon-48.png",
+      "96": "icon-96.png"
+    },
+    "default_title": "Fix keyboard layout",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{c5b518e0-fe25-4d75-a902-4c1ab7aa6ef6}",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  }
+}
